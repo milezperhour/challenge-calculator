@@ -9,11 +9,20 @@ body {
     transform:translate(-50%, -50%);
     top:50%;
     left:50%;
+    background:linear-gradient(#6be6d5, #6be698);
+    padding:40px 60px;
+    border-radius:10px;
+    box-shadow: #a4ffc6 10px 10px 20px;
 }
 
 h1 {
     text-align:center;
     text-transform: uppercase;
+    color:#3b3b3b;
+}
+
+p {
+    color:#3b3b3b;
 }
 
 .calculator {
@@ -40,4 +49,9 @@ h1 {
     cursor: pointer;
     font-size: 20px;
     line-height: 20px;
+    transition: 0.5s;
+}
+
+.submit-btn:hover {
+    background-color:#c1845f;
 }

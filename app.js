@@ -46,17 +46,20 @@ class Input extends React.Component {
             if (integer < 0){
                 negativeNums.push(integer);
             }
+
+            //ignore numbers greater than 1000
+            if (integer > 1000){
+                continue;
+            }
             newArr.push(integer);
         }
 
         if (negativeNums.length > 0){
-            for (var j=0; j<negativeNums.length; j++){
-                let negativeNum = negativeNums[j];
-                console.log('These negative numbers were submitted: ', negativeNum);
-            }
+            alert(negativeNums.length + ' negative numbers were submitted: '  + negativeNums + '\n' + 'Please enter only positive numbers.');
+
         } else {
             const total = newArr.reduce((a, b) => a + b, 0);
-            alert('A number was submitted: ' + total);
+            alert('total: ' + total);
         }
         e.preventDefault();
     }
@@ -65,12 +68,12 @@ class Input extends React.Component {
         return (
             <div className="calculator">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" className="number-input" value={this.state.number} onChange={this.handleNumberInput} />
-                    <button type="submit" className="submit-btn" value="Submit">+</button>
+                    <input type="text" className="number-input" value={this.state.number} onChange={this.handleNumberInput} ref="best"/>
+                    <button type="submit" className="btn submit-btn" value="Submit">+</button>
                 </form>
 
                 <div>
-                    <p>The number input value:</p>
+                    <p>Current input value:</p>
                     <p>{this.state.number}</p>
                 </div>
             </div>
