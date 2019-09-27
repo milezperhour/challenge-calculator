@@ -23,7 +23,17 @@ class Input extends React.Component {
     }
 
     handleSubmit(e) {
-        alert('A number was submitted: ' + this.state.number);
+        const numbersArr = this.state.number.split(',');
+        let newArr = [];
+
+        for (var i=0; i<numbersArr.length; i++){
+            let string = numbersArr[i];
+            let integer = parseInt(string);
+            newArr.push(integer);
+        }
+
+        const total = newArr.reduce((a, b) => a + b, 0);
+        alert('A number was submitted: ' + total);
         e.preventDefault();
     }
 
